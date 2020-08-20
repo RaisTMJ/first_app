@@ -5,23 +5,22 @@ void main() {
   runApp(myApp());
 }
 
-class myApp extends StatefulWidget{
-
+class myApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _myAppState();
   }
 }
 
-class MyAppState extends State <myApp>{
-  var questionIndex = 0;
+class _myAppState extends State<myApp> {
+  var _questionIndex = 0;
 
-  myAnswer() {
+  _myAnswer() {
     setState(() {
-      questionIndex ++;
+      _questionIndex++;
     });
-    print(questionIndex);
+    print(_questionIndex);
     return 1;
   }
 
@@ -29,25 +28,38 @@ class MyAppState extends State <myApp>{
   Widget build(BuildContext context) {
     var questions = [
       'Whats yout favaurite color?',
-      'Whats yout favaurite animal?'
+      'Whats yout favaurite animal?',
+      'Whats yout favaurite test ?',
+      'When last you poop in your trousers?',
+      'Whats yout favaurite animal?',
+      'Whats yout favaurite animal?',
+      'Whats yout favaurite animal?',
+      'Whats yout favaurite animal?',
+      'Whats yout favaurite animal?',
+      'Whats yout favaurite animal?',
+      'Whats yout favaurite animal?',
     ];
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        title: Text('Mohamad Rais'),
-      ),
-      body: Column(
-        children: [
-          Text('The Questions'),
-          RaisedButton(
-            child: Text('Answer 1'),
-            onPressed: () => {print('test')},
-          ),
-          RaisedButton(child: Text(questions[1]), onPressed: myAnswer),
-          RaisedButton(child: Text(questions.elementAt(0)), onPressed: null),
-          RaisedButton(child: Text(questions[0]), onPressed: null),
-        ],
-      ),
-    ));
+            appBar: AppBar(
+              title: Text('Mohamad Rais'),
+            ),
+            body: Column(
+              children: [
+                Text(questions[_questionIndex]),
+                RaisedButton(
+                  child: Text('Answer b'),
+                  onPressed: _myAnswer,
+                ),
+                RaisedButton(child: Text('Answer 1'), onPressed: _myAnswer),
+                RaisedButton(child: Text('Answer 2'), onPressed: _myAnswer),
+                RaisedButton(child: Text('Answer 3'), onPressed: _myAnswer),
+              ],
+
+            ),
+            drawer: Drawer(
+                child: Text('Drawwwer')// Populate the Drawer in the next step.
+            )
+        ));
   }
 }
